@@ -24,25 +24,25 @@ btnTijera.addEventListener("click", btnTijeraClick);
 function btnPiedraClick() {
   valor = btnPiedra.value;
   pc = Math.floor(Math.random() * (3 - 1 + 1) + 1);
-  calcularJugada(valor, pc, ganadas, perdidas);
+  calcularJugada(valor, pc);
   ModificarBtnPC(pc);
 }
 
 function btnPapelClick() {
   valor = btnPapel.value;
   pc = Math.floor(Math.random() * (3 - 1 + 1) + 1);
-  calcularJugada(valor, pc, ganadas, perdidas);
+  calcularJugada(valor, pc);
   ModificarBtnPC(pc);
 }
 
 function btnTijeraClick() {
   valor = btnTijera.value;
   pc = Math.floor(Math.random() * (3 - 1 + 1) + 1);
-  calcularJugada(valor, pc, ganadas, perdidas);
+  calcularJugada(valor, pc);
   ModificarBtnPC(pc);
 }
 
-function calcularJugada(valor, pc, ganadas, perdidas) {
+function calcularJugada(valor, pc) {
   // Optenemos mediante condicionales de if anidados, el ganador, perdedor o empate
 
   // Empate
@@ -56,18 +56,17 @@ function calcularJugada(valor, pc, ganadas, perdidas) {
     imgPartida.className = "centroGanar";
     text.innerText = "¡¡Ganaste!!";
     ganadas = ganadas + 1;
-    console.log(ganadas);
-    /* jugadorPuntaje.innerText = "Jugador = " + ganadas; */
+    jugadorPuntaje.innerText = "Jugador = " + ganadas;
   } else if (valor == 2 && pc == 1) {
     imgPartida.className = "centroGanar";
     text.innerText = "¡¡Ganaste!!";
     ganadas = ganadas + 1;
-    /* jugadorPuntaje.innerText = "Jugador = " + ganadas; */
+    jugadorPuntaje.innerText = "Jugador = " + ganadas;
   } else if (valor == 3 && pc == 2) {
     imgPartida.className = "centroGanar";
     text.innerText = "¡¡Ganaste!!";
     ganadas = ganadas + 1;
-    /* jugadorPuntaje.innerText = "Jugador = " + ganadas; */
+    jugadorPuntaje.innerText = "Jugador = " + ganadas;
   }
 
   // Perder
@@ -75,14 +74,17 @@ function calcularJugada(valor, pc, ganadas, perdidas) {
     imgPartida.className = "centroPerder";
     text.innerText = "Perdiste...";
     perdidas++;
+    pcPuntaje.innerText = "Pc = " + perdidas;
   } else if (valor == 2 && pc == 3) {
     imgPartida.className = "centroPerder";
     text.innerText = "Perdiste...";
     perdidas++;
+    pcPuntaje.innerText = "Pc = " + perdidas;
   } else if (valor == 3 && pc == 1) {
     imgPartida.className = "centroPerder";
     text.innerText = "Perdiste...";
     perdidas++;
+    pcPuntaje.innerText = "Pc = " + perdidas;
   }
 
   // Estado normal
